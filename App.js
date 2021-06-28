@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
       width:100,
   },
   rightContainer: {
-      backgroundColor: "blue",
       flex: 1
   }
 });
@@ -37,7 +36,14 @@ export default function App() {
                   }}
                 />
             </View>
-            <View style={styles.rightContainer}></View>
+            <View style={styles.rightContainer}>
+                <Text numberOfLines={3}>
+                    ed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                </Text>
+                <Text>
+                    ReactNative
+                </Text>
+            </View>
         </View>
     </View>
   );
