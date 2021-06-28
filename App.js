@@ -20,7 +20,17 @@ const styles = StyleSheet.create({
       width:100,
   },
   rightContainer: {
-      flex: 1
+      flex: 1,
+      flexDirection: 'column',
+      padding: 10,
+      justifyContent: "space-between"
+  },
+  text: {
+      fontSize: 16
+  },
+  subtext: {
+      fontSize: 12,
+      color: "gray"
   }
 });
 
@@ -37,10 +47,10 @@ export default function App() {
                 />
             </View>
             <View style={styles.rightContainer}>
-                <Text numberOfLines={3}>
+                <Text numberOfLines={3} style={styles.text}>
                     ed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
                 </Text>
-                <Text>
+                <Text style={styles.subtext}>
                     ReactNative
                 </Text>
             </View>
