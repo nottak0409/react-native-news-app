@@ -35,7 +35,13 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-    const [articles, setArticles] = useState(dummyarticles);
+    const [articles, setArticles] = useState([]);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setArticles(dummyarticles)
+        }, 2000);
+        return() => clearTimeOut(timer); 
+    }, []);
   return (
     <SafeAreaView style={styles.container}>
         <FlatList
