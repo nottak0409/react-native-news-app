@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import ListItem from './components/ListItem.js'
 
 const styles = StyleSheet.create({
   container: {
@@ -37,24 +38,7 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-        <View style={styles.itemContainer}>
-            <View style={styles.leftContainer}>
-                <Image
-                  style={{width:100, height: 100}}
-                  source={{
-                    uri: 'https://picsum.photos/id/10/200/200',
-                  }}
-                />
-            </View>
-            <View style={styles.rightContainer}>
-                <Text numberOfLines={3} style={styles.text}>
-                    ed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                </Text>
-                <Text style={styles.subtext}>
-                    ReactNative
-                </Text>
-            </View>
-        </View>
+        <ListItem />
     </View>
   );
 }
