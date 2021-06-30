@@ -38,7 +38,11 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-        <ListItem />
+        <ListItem
+            author="SampleNews"
+            imageUrl="https://picsum.photos/id/10/200/200"
+            title="ed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt"
+        />
     </View>
   );
 }
