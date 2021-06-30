@@ -1,8 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
-import ListItem from './components/ListItem.js'
-import dummyarticles from './dummies/articles.json'
+import ListItem from './components/ListItem.js';
+import dummyarticles from './dummies/articles.json';
+import Constants from 'expo-constants';
+import axios from 'axios';
+
+const URL = `https://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
 const styles = StyleSheet.create({
   container: {
@@ -36,12 +40,16 @@ const styles = StyleSheet.create({
 
 export default function App() {
     const [articles, setArticles] = useState([]);
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setArticles(dummyarticles)
-        }, 2000);
-        return() => clearTimeOut(timer); 
-    }, []);
+    useEffect(() => {}, []);
+
+    const fetchArtiCles = async() => {
+        try{
+            const response = await axios.get(URL);
+            setArticles(response.data.articles);
+        } catch(error) {
+            console.log(error);
+        }
+    }
   return (
     <SafeAreaView style={styles.container}>
         <FlatList
