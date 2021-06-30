@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, FlatList, SafeAreaView } from 'react-native';
 import ListItem from './components/ListItem.js'
-import articles from './dummies/articles.json'
+import dummyarticles from './dummies/articles.json'
 
 const styles = StyleSheet.create({
   container: {
@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
+    const [articles, setArticles] = useState(dummyarticles);
   return (
     <SafeAreaView style={styles.container}>
         <FlatList
