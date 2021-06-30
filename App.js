@@ -35,11 +35,6 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-    const items = articles.map((article, index) => {return (
-        <ListItem
-            key = {index}
-        />
-    )});
   return (
     <SafeAreaView style={styles.container}>
         <FlatList
