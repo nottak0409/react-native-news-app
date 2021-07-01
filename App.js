@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
 
 export default function App() {
     const [articles, setArticles] = useState([]);
-    useEffect(() => {}, []);
+    useEffect(() => {
+        fetchArtiCles()
+    }, []);
 
     const fetchArtiCles = async() => {
         try{
