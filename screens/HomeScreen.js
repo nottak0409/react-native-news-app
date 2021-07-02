@@ -7,40 +7,41 @@ import axios from "axios";
 const URL = `https://newsapi.org/v2/top-headlines?country=jp&apiKey=${Constants.manifest.extra.newsApiKey}`;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
+    container: {
+        flex: 1,
+        backgroundColor: "#fff",
+    },
 });
 
-function HomeScreen() {
-  const [articles, setArticles] = useState([]);
-  useEffect(() => {
-    fetchArticles();
-  }, []);
+function HomeScreen({navigation}) {
+    const [articles, setArticles] = useState([]);
+    useEffect(() => {
+        fetchArticles();
+    }, []);
 
-  const fetchArticles = async () => {
-    try {
-      const response = await axios.get(URL);
-      setArticles(response.data.articles);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
+    const fetchArticles = async () => {
+        try {
+            const response = await axios.get(URL);
+            setArticles(response.data.articles);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+    return (
+        <SafeAreaView style={styles.container}>
+        <FlatList
         data={articles}
         renderItem={({ item }) => (
-          <ListItem
+            <ListItem
             imageURL={item.urlToImage}
             title={item.title}
             author={item.author}
-          />
+            onPress={() => navigation.navigate("Article")}
+            />
         )}
         keyExtractor={(item, index) => index.toString()}
-      />
-    </SafeAreaView>
-  );
+        />
+        </SafeAreaView>
+    );
 };
 export default HomeScreen;
