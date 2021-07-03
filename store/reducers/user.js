@@ -1,5 +1,5 @@
 const initialState = {
-    clips: [];
+    clips: []
 }
 
 const reducer = (state = initialState, action) => {
