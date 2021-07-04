@@ -8,12 +8,10 @@ const styles = StyleSheet.create({
     },
 });
 
-const ClipScreen = () => {
+export default function ClipScreen() {
     return (
         <SafeAreaView style={styles.container}>
             <Text>Clip Screen</Text>
         </SafeAreaView>
-    )
+    );
 };
-
-export default ClipScreen;
